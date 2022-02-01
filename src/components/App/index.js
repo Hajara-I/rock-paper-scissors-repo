@@ -1,10 +1,12 @@
 import "./App.css";
 import Greeting from "../Greeting";
 import { useState } from "react";
+import Game from "../Game";
 
 function App() {
 	const [username, setUsername] = useState("");
 	const [welcomeMsg, setWelcomeMsg] = useState("");
+	const [playerChoice, setPlayerChoice] = useState("");
 
 	function handleUsername(event) {
 		const newUsername = event.target.value;
@@ -18,6 +20,12 @@ function App() {
 		console.log(welcomeMsg);
 	}
 
+	function playerClick(event) {
+		let choice = event.target.value;
+		setPlayerChoice(choice);
+		console.log(playerChoice);
+	}
+
 	return (
 		<div className="App">
 			<p>Play rock, paper, scissors!</p>
@@ -27,6 +35,7 @@ function App() {
 				welcomePlayer={welcomePlayer}
 				welcomeMsg={welcomeMsg}
 			/>
+			<Game playerClick={playerClick} playerChoice={playerChoice} />
 		</div>
 	);
 }
