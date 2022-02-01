@@ -1,12 +1,4 @@
 import React from "react";
-// let rock = document.querySelector("#rock");
-// let paper = document.querySelector("#paper");
-// let scissors = document.querySelector("#scissors");
-
-// function playerClick(event) {
-// 	let choice = event.target.value;
-// 	console.log(choice);
-// }
 
 export default function Game(props) {
 	return (
@@ -14,20 +6,20 @@ export default function Game(props) {
 			<p>Select your weapon</p>
 
 			<div className="game-buttons" id="rock">
-				<button onClick={props.playerClick} value="rock">
+				<button onClick={props.handleClick} value="rock">
 					Rock
 				</button>
 			</div>
 			<div className="game-buttons" id="paper">
-				<button onClick={props.playerClick} value="paper">
+				<button onClick={props.handleClick} value="paper">
 					Paper
 				</button>
 			</div>
 			<div className="game-buttons" id="scissors">
-				<button onClick={props.playerClick} value="scissors">
+				<button onClick={props.handleClick} value="scissors">
 					Scissors
 				</button>
-				<p>{`You chose ${props.playerChoice}. Computer chose b`}</p>
+				<p>{`You chose ${props.playerChoice} and Computer chose ${props.computerChoice}`}</p>
 			</div>
 		</section>
 	);
