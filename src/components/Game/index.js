@@ -3,8 +3,8 @@ import React from "react";
 export default function Game(props) {
 	return (
 		<section>
-			<p>Select your weapon</p>
-
+			<p className="prompt-text">Select your weapon</p>
+			<br />
 			<div>
 				<button
 					id="rock"
@@ -38,7 +38,8 @@ export default function Game(props) {
 				</button>
 			</div>
 			<br />
-			<p>{`You chose ${props.playerChoice} and Computer chose ${props.computerChoice}`}</p>
+			<p value={props.announcement}>{props.announcement}</p>
+			{/* <p>{`You chose ${props.playerChoice} and Computer chose ${props.computerChoice}`}</p> */}
 		</section>
 	);
 }

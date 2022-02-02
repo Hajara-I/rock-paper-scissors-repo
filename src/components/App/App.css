@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Play:wght@400;700&display=swap");
 .App {
 	text-align: center;
+	height: 100%;
 }
 
 .button {
@@ -23,6 +25,10 @@
 	border: 2px solid rgb(0, 174, 255);
 }
 
+.button:focus {
+	background-color: #37ff000d;
+}
+
 #rock {
 	border: 3px solid rgb(60, 255, 0);
 }
@@ -33,4 +39,28 @@
 
 #scissors {
 	border: 3px solid rgb(0, 174, 255);
+}
+
+.title {
+	color: #ffffff;
+	font-family: "Play", sans-serif;
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.prompt-text {
+	font-family: "Comfortaa", cursive;
+	color: white;
+	font-size: 15px;
+}
+
+.score-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.result {
+	font-family: "Comfortaa", cursive;
+	color: white;
+	font-size: 15px;
 }
