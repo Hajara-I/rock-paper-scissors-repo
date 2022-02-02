@@ -5,22 +5,40 @@ export default function Game(props) {
 		<section>
 			<p>Select your weapon</p>
 
-			<div className="game-buttons" id="rock">
-				<button onClick={props.handleClick} value="rock">
-					Rock
+			<div>
+				<button
+					id="rock"
+					className="button"
+					onClick={props.handleClick}
+					value="rock"
+				>
+					✊
 				</button>
 			</div>
-			<div className="game-buttons" id="paper">
-				<button onClick={props.handleClick} value="paper">
-					Paper
+			<br />
+			<div>
+				<button
+					id="paper"
+					className="button"
+					onClick={props.handleClick}
+					value="paper"
+				>
+					🖐️
 				</button>
 			</div>
-			<div className="game-buttons" id="scissors">
-				<button onClick={props.handleClick} value="scissors">
-					Scissors
+			<br />
+			<div>
+				<button
+					id="scissors"
+					className="button"
+					onClick={props.handleClick}
+					value="scissors"
+				>
+					✌
 				</button>
-				<p>{`You chose ${props.playerChoice} and Computer chose ${props.computerChoice}`}</p>
 			</div>
+			<br />
+			<p>{`You chose ${props.playerChoice} and Computer chose ${props.computerChoice}`}</p>
 		</section>
 	);
 }

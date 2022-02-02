@@ -1,6 +1,6 @@
 import "./App.css";
 import Greeting from "../Greeting";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Game from "../Game";
 import Result from "../Result";
 
@@ -35,31 +35,45 @@ function App() {
 		// using random number to pick a weapon for computer
 		setComputerChoice(weapons[random]);
 		// check winner
-		if (playerChoice === computerChoice) {
-			setResult("Draw");
-		} else {
-			setResult("Keep playing");
-		}
 	}
 
-	console.log(`${playerChoice} is the player's choice`);
+	useEffect(() => {
+		if (playerChoice !== "" && computerChoice !== "") {
+			if (playerChoice === computerChoice) {
+				setResult("Draw");
+			} else {
+				setResult("Keep playing");
+			}
+		}
+	}, [playerChoice, computerChoice]);
+
+	if (username !== "") {
+		console.log(`${playerChoice} is the player's choice`);
+	}
+
 	console.log(`${computerChoice} is the computer's choice`);
 	console.log(result);
 
 	return (
 		<div className="App">
-			<p>Play rock, paper, scissors!</p>
+			<p>ROCK</p>
+			<p>PAPER</p>
+			<p>SCISSORS</p>
+
+			<br />
 			<Greeting
 				handleUsername={handleUsername}
 				username={username}
 				welcomePlayer={welcomePlayer}
 				welcomeMsg={welcomeMsg}
 			/>
+			<br />
 			<Game
 				handleClick={handleClick}
 				playerChoice={playerChoice}
 				computerChoice={computerChoice}
 			/>
+			<br />
 			<Result result={result} />
 		</div>
 	);
