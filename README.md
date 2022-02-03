@@ -11,6 +11,6 @@
 - https://rock-paper-scissors-haj.netlify.app/
 
 ## Stack
-- JavaScrip
+- JavaScript
 - React
 - CSS
