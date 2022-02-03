@@ -9,3 +9,5 @@
 - The project also make use of the useEffect hook to manage the re-rendering of the app based on a number of dependencies. 
 - Some aspects that proved challenging initially include the managing the state's between the user and the computer's choice and the if else loop which was rendering prematurely prior to incorporating the useEffect hook. 
 
+## Online Demo
+- https://rock-paper-scissors-haj.netlify.app/
