@@ -10,7 +10,7 @@ export default function Game(props) {
 					id="rock"
 					className="button"
 					onClick={props.handleClick}
-					value="rock"
+					value="ROCK"
 				>
 					✊
 				</button>
@@ -21,7 +21,7 @@ export default function Game(props) {
 					id="paper"
 					className="button"
 					onClick={props.handleClick}
-					value="paper"
+					value="PAPER"
 				>
 					🖐️
 				</button>
@@ -32,14 +32,13 @@ export default function Game(props) {
 					id="scissors"
 					className="button"
 					onClick={props.handleClick}
-					value="scissors"
+					value="SCISSORS"
 				>
 					✌
 				</button>
 			</div>
 			<br />
-			<p value={props.announcement}>{props.announcement}</p>
-			{/* <p>{`You chose ${props.playerChoice} and Computer chose ${props.computerChoice}`}</p> */}
+			<p className="announcement">{props.announcement}</p>
 		</section>
 	);
 }

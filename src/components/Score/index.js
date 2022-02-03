@@ -4,12 +4,12 @@ export default function Score(props) {
 	return (
 		<div className="score-container">
 			<div className="player-score">
-				<p>Player</p>
-				<p>{props.playerScore}</p>
+				<p className="username">Player</p>
+				<p className="score">{props.playerScore}</p>
 			</div>
 			<div className="computer-score">
-				<p>Computer</p>
-				<p>{props.computerScore}</p>
+				<p className="username">Computer</p>
+				<p className="score">{props.computerScore}</p>
 			</div>
 		</div>
 	);

@@ -13,6 +13,13 @@ function App() {
 	const [result, setResult] = useState("");
 	const [playerScore, setPlayerScore] = useState(0);
 	const [computerScore, setComputerScore] = useState(0);
+	const [announcement, setAnnouncement] = useState("");
+
+	function announce() {
+		setAnnouncement(
+			`You chose ${playerChoice} and the Computer chose ${computerChoice}`
+		);
+	}
 
 	function handleUsername(event) {
 		const newUsername = event.target.value;
@@ -31,24 +38,23 @@ function App() {
 		let choice = event.target.value;
 		setPlayerChoice(choice);
 		// getting a random number
-		let weapons = ["rock", "paper", "scissors"];
+		let weapons = ["ROCK", "PAPER", "SCISSORS"];
 		let min = Math.ceil(0);
 		let max = Math.floor(3);
 		let random = Math.floor(Math.random() * (max - min) + min);
 		console.log(random);
 		// using random number to pick a weapon for computer
 		setComputerChoice(weapons[random]);
-		let announcement = `You chose ${playerChoice} and Computer chose ${computerChoice}`;
 	}
 
 	useEffect(() => {
 		if (playerChoice !== "" && computerChoice !== "") {
 			if (playerChoice === computerChoice) {
-				setResult("Draw");
+				setResult("You Draw");
 			} else if (
-				(playerChoice === "scissors" && computerChoice === "paper") ||
-				(playerChoice === "paper" && computerChoice === "rock") ||
-				(playerChoice === "rock" && computerChoice === "scissors")
+				(playerChoice === "SCISSORS" && computerChoice === "PAPER") ||
+				(playerChoice === "PAPER" && computerChoice === "ROCK") ||
+				(playerChoice === "ROCK" && computerChoice === "SCISSORS")
 			) {
 				setResult("You Won");
 				setPlayerScore(playerScore + 1);
@@ -56,6 +62,7 @@ function App() {
 				setResult("Computer Won");
 				setComputerScore(computerScore + 1);
 			}
+			announce();
 		}
 	}, [playerChoice, computerChoice]);
 	if (username !== "") {
@@ -67,28 +74,31 @@ function App() {
 
 	return (
 		<div className="App">
-			<div className="title">
-				<p>ROCK</p>
-				<p>PAPER</p>
-				<p>SCISSORS</p>
-			</div>
-			<br />
-			{/* <Greeting
+			<div className="main-container">
+				<div className="title">
+					<p>ROCK</p>
+					<p>PAPER</p>
+					<p>SCISSORS</p>
+				</div>
+				<br />
+				{/* <Greeting
 				handleUsername={handleUsername}
 				username={username}
 				welcomePlayer={welcomePlayer}
 				welcomeMsg={welcomeMsg}
 			/> */}
-			<Game
-				handleClick={handleClick}
-				playerChoice={playerChoice}
-				computerChoice={computerChoice}
-				result={result}
-			/>
-			<br />
-			<Result result={result} />
-			<br />
-			<Score playerScore={playerScore} computerScore={computerScore} />
+				<Game
+					handleClick={handleClick}
+					playerChoice={playerChoice}
+					computerChoice={computerChoice}
+					result={result}
+					announcement={announcement}
+				/>
+				<br />
+				<Result result={result} />
+				<br />
+				<Score playerScore={playerScore} computerScore={computerScore} />
+			</div>
 		</div>
 	);
 }
