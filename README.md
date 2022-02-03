@@ -11,3 +11,8 @@
 
 ## Online Demo
 - https://rock-paper-scissors-haj.netlify.app/
+
+## Stack
+- JavaScrip
+- React
+- CSS
