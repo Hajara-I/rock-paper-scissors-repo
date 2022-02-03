@@ -1,5 +1,3 @@
-## A Basic Rock Paper Scissors game created in React
-
 ## Rock, Paper, Scissors game in React JS 
 
 - A fully functional rock, paper, scissors app created in React JS 
