@@ -1,5 +1,5 @@
 import "./App.css";
-import Greeting from "../Greeting";
+// import Greeting from "../Greeting";
 import { useState, useEffect } from "react";
 import Game from "../Game";
 import Result from "../Result";
@@ -21,17 +21,17 @@ function App() {
 		);
 	}
 
-	function handleUsername(event) {
-		const newUsername = event.target.value;
-		setUsername(newUsername);
-		//console.log(newUsername);
-	}
+	// function handleUsername(event) {
+	// 	const newUsername = event.target.value;
+	// 	setUsername(newUsername);
+	// 	//console.log(newUsername);
+	// }
 
-	function welcomePlayer() {
-		const player = username;
-		setWelcomeMsg(`Welcome ${player}, let's play!`);
-		console.log(welcomeMsg);
-	}
+	// function welcomePlayer() {
+	// 	const player = username;
+	// 	setWelcomeMsg(`Welcome ${player}, let's play!`);
+	// 	console.log(welcomeMsg);
+	// }
 
 	function handleClick(event) {
 		//getting player selection from clicked button
