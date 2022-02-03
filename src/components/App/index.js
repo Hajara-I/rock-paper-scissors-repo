@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Game from "../Game";
 import Result from "../Result";
 import Score from "../Score";
+import Popup from "../Popup";
 
 function App() {
 	const [username, setUsername] = useState("");
@@ -14,6 +15,17 @@ function App() {
 	const [playerScore, setPlayerScore] = useState(0);
 	const [computerScore, setComputerScore] = useState(0);
 	const [announcement, setAnnouncement] = useState("");
+	const [gameComplete, setGameComplete] = useState("");
+	const [popup, setPopup] = useState(false);
+
+	function triggerPopup() {
+		setPopup(true);
+	}
+
+	function closePopUp() {
+		setPopup(false);
+		document.location.reload();
+	}
 
 	function announce() {
 		setAnnouncement(
@@ -62,6 +74,7 @@ function App() {
 				setResult("Computer Won");
 				setComputerScore(computerScore + 1);
 			}
+			gameFinish();
 			announce();
 		}
 	}, [playerChoice, computerChoice]);
@@ -69,9 +82,15 @@ function App() {
 		console.log(`${playerChoice} is the player's choice`);
 	}
 
-	// displaying status
-	//console.log(`${computerChoice} is the computer's choice`);
-	//console.log(result);
+	function gameFinish() {
+		if (playerScore === 5) {
+			triggerPopup();
+			setGameComplete("Congratulations! You won the game!");
+		} else if (computerScore === 5) {
+			triggerPopup();
+			setGameComplete("You lost. Computer won the game");
+		}
+	}
 
 	return (
 		<div className="App">
@@ -96,9 +115,17 @@ function App() {
 					announcement={announcement}
 				/>
 				<br />
-				<Result result={result} />
+				<Result result={result} gameComplete={gameComplete} />
 				<br />
 				<Score playerScore={playerScore} computerScore={computerScore} />
+				<Popup
+					trigger={popup}
+					setTrigger={closePopUp}
+					gameFinish={gameFinish}
+					playerScore={playerScore}
+					computerScore={computerScore}
+					gameComplete={gameComplete}
+				/>
 			</div>
 		</div>
 	);
