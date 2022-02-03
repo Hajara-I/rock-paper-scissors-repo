@@ -69,6 +69,7 @@ function App() {
 		console.log(`${playerChoice} is the player's choice`);
 	}
 
+	// displaying status
 	//console.log(`${computerChoice} is the computer's choice`);
 	//console.log(result);
 
