@@ -54,7 +54,6 @@ function App() {
 		let min = Math.ceil(0);
 		let max = Math.floor(3);
 		let random = Math.floor(Math.random() * (max - min) + min);
-		console.log(random);
 		// using random number to pick a weapon for computer
 		setComputerChoice(weapons[random]);
 	}
